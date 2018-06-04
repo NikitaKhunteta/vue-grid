@@ -26,7 +26,7 @@ const state = {
 // };
 
 const actions = {
-    [types.Actions.POST_DATA]: ({commit}, payload) => {
+    [types.Actions.POST_DATA]: () => {
      // 
      console.log("@@@@@@@@@@@@@@");
      return Promise.resolve({

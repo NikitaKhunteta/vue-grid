@@ -7,29 +7,11 @@
     <div v-if="error" >
       {{ error }}
     </div>
-
-   <table>
-    <thead>
-      <tr>
-        <th>
-         Name
-        </th>
-         <th>
-         Amount
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="user in users" :key=user.id>
-        <td>
-          {{user.name}}
-        </td>
-          <td>
-          {{user.amount}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <Grid 
+    :metaData="{headers: [{ title: 'Name', columnIndex: 'name'}]}">
+      
+    </Grid>
+   
         <button class="btn btn-primary" @click="increment()">Next Page</button>
         <button class="btn btn-primary" @click="decrement()">Prev Page</button>
         <span>Total User count: {{userCount}}</span>
@@ -39,8 +21,12 @@
 <script>
     import {mapActions, mapGetters, mapState} from 'vuex';
     import * as types from '../../vuex/types';
+    import Grid from '../../../../components/Grid';
 
     export default {
+      components: {
+        Grid
+      },
        created () {
         // fetch the data when the view is created 
         this.fetchData()

@@ -14,16 +14,16 @@ const getters = {
   // this.$store.state.users
   //this.$store.getters.getterName
   // getters will be the 2nd arg
-  [types.USER_DATA]: (state, getters, rootState) => {
+  [types.USER_DATA]: (state) => {
     return state.data;
   },
-  [types.USER_COUNT]: (state, getters, rootState, rootGetters) => {
+  [types.USER_COUNT]: (state, getters, rootState) => {
     return rootState.users + ' Users';
   },
 };
 
 const mutations = {
-  [types.Mutations.CHANGE_PAGE_NUMBER]: (state, payload, rootState) => {
+  [types.Mutations.CHANGE_PAGE_NUMBER]: (state, payload) => {
     state.pagination.current = payload;
   },
   [types.Mutations.CHANGE_USER_DATA]: (state, payload) => {
@@ -34,7 +34,7 @@ const mutations = {
 };
 
 const actions = {
-  [types.Actions.FETCH_DATA]: ({ commit }, payload) => {
+  [types.Actions.FETCH_DATA]: ({ commit }) => {
     setTimeout(() => {
       commit(types.Mutations.CHANGE_USER_DATA, {
         data: [
